@@ -19,3 +19,9 @@ app.use(errorHandler);
 
 module.exports = app;
  
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Expense Tracker API is running 🚀",
+  });
+});
