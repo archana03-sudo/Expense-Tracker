@@ -11,6 +11,13 @@ const app = express();
 app.use(express.json());
 connectDB();
 
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Expense Tracker API is running 🚀",
+  });
+});
+
 app.use("/api/auth", authRoutes);
 app.use("/api/expenses", expenseRoutes);
 
@@ -19,9 +26,4 @@ app.use(errorHandler);
 
 module.exports = app;
  
-app.get("/", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Expense Tracker API is running 🚀",
-  });
-});
+
